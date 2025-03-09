@@ -1,0 +1,96 @@
+.header-bar {
+    background-color: #0ca6e7; /* 設定上方區域為藍色 */
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end; /* 讓選單靠右對齊 */
+    gap: 15px;
+    width: 100%; /* 讓藍色區域佔滿整個畫面 */
+    position: fixed; /* 固定在最上方 */
+    top: 0;
+    left: 0;
+    z-index: 3; /* 設定顯示優先級為最高 */
+}
+
+body {
+    margin: 0; /* 移除頁面邊距 */
+    padding-top: 60px; /* 避免內容被 header 擋住 */
+}
+
+/* 讓整個選單區塊固定在右上角 */
+.menu-container {
+    position: absolute;
+    top: 15px; /* 距離上方 */
+    right: 100px; /* 距離右方 */
+    display: flex;
+    gap: 15px; /* 按鈕間距 */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-title {
+    padding: 10px 10px;
+    background-color: #0ca6e7;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.dropdown-pick-title {
+    padding: 10px 10px;
+    background-color: #0ca6e7;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-decoration:underline double;
+}
+
+.dropdown-title:hover {
+    background-color: #0ca6e7;
+    color:aquamarine;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0ca6e7;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #0ca6e7;
+    color:aquamarine;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 小螢幕時bar條設計*/
+@media (max-width: 1250px) {
+    .menu-container {
+        position: absolute;
+        top: 15px; /* 距離上方 */
+        right: 100px; /* 距離右方 */
+        display: flex;
+        gap: 0px; /* 按鈕間距 */
+    }
+}
